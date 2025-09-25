@@ -1,0 +1,19 @@
+.clock-container {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  background-image: url('../public/The_Goat.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+.clock {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 5rem;
+  color: #970000;
+  text-shadow: #970000 1px 0 10px;
+}
+.clock h1 {
+  margin: 0;
+  transition: color 0.5s ease;
+}
+

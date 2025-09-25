@@ -78,4 +78,10 @@ button:hover{
   color: rgba(0, 0, 0, 0.685);
   font-weight: bold;
 }
+.edit{
+  background-color: #ffb84d;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}
 

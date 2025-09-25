@@ -1,0 +1,75 @@
+.stopwatch {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-color: rgb(229, 229, 229);
+  max-width: fit-content;
+  margin: auto;
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  border: 2px solid #929292;
+}
+
+.display{
+  font-size: 4rem;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #333;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding:20px;
+}
+ 
+.start{
+  padding: 20px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.start:hover{
+  background-color: #29932c;
+}
+
+.stop{
+  padding: 20px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ac3b35;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.stop:hover{
+  background-color: #b01e17;
+}
+
+.reset{
+  padding: 20px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #426bc2;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.reset:hover{
+  background-color: #2751ab;
+}

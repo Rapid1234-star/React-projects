@@ -1,70 +1,96 @@
-import './App.css';
-import { useState } from 'react';
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const[tasks, setTasks] = useState([]);
-  const[input, setInput] = useState("");
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [edit, setEdit] = useState(null);
+  const [editInput, setEditInput] = useState("");
 
-  const showtasks=tasks.map((task,index)=>{
-    return(
-      <div className='task'>
+  const showtasks = tasks.map((task, index) => {
+    return (
+      <div className="task">
         <li key={index}>{task}</li>
-        <button className='delete' onClick={()=>handleDelete(index)}>Delete</button>
-        <button className="up" onClick={()=>handleUp(index)}>👆</button>
-        <button className="down" onClick={()=>handleDown(index)}>👇</button>
+        <button className="delete" onClick={() => handleDelete(index)}>
+          Delete
+        </button>
+        <button className="up" onClick={() => handleUp(index)}>
+          👆
+        </button>
+        <button className="down" onClick={() => handleDown(index)}>
+          👇
+        </button>
+        <button className="edit" onClick={() => handleEdit(index)} >
+          🎶
+        </button>
       </div>
-    )
+    );
+  });
 
-  })
-  
   const handleChange = (e) => {
     setInput(e.target.value);
   };
 
-  function handleAdd(){
-    if(input.trim()!==""){
-    setTasks((prev)=>[...prev, input]);
-    setInput("");
-    }
-    else{
+  function handleAdd() {
+    if (input.trim() !== "") {
+      setTasks((prev) => [...prev, input]);
+      setInput("");
+    } else {
       alert("Please enter a valid task");
     }
-
   }
-  function handleDelete(index){
+  function handleDelete(index) {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   }
 
-  function handleUp(index){
-    if(index>0){
+  function handleUp(index) {
+    if (index > 0) {
       const newTasks = [...tasks];
-    [newTasks[index - 1], newTasks[index]] = [newTasks[index], newTasks[index - 1]];
+      [newTasks[index - 1], newTasks[index]] = [
+        newTasks[index],
+        newTasks[index - 1],
+      ];
       setTasks(newTasks);
     }
-
   }
 
-  function handleDown(index){
-    if(index<tasks.length-1){
+  function handleDown(index) {
+    if (index < tasks.length - 1) {
       const newTasks = [...tasks];
-    [newTasks[index +1], newTasks[index]] = [newTasks[index], newTasks[index + 1]];
+      [newTasks[index + 1], newTasks[index]] = [
+        newTasks[index],
+        newTasks[index + 1],
+      ];
       setTasks(newTasks);
     }
-
   }
-  
+
+  function handleEdit(index) {
+    setIsEditing(true);
+    setEdit(index);
+
+    return (
+      alert("Need to add edit functionaltiy.Will add it soon in the name of Odin!")
+    );
+  }
   return (
     <div className="todo">
       <h1>TO-DO LIST</h1>
-      <div className='lists'>
-        <input type="text" value={input} placeholder='Add a task' onChange={handleChange}/>
-        <button onClick={handleAdd} className='add'>Add Task</button>
+      <div className="lists">
+        <input
+          type="text"
+          value={input}
+          placeholder="Add a task"
+          onChange={handleChange}
+        />
+        <button onClick={handleAdd} className="add">
+          Add Task
+        </button>
       </div>
-        <ul>
-          {showtasks}
-        </ul>
-   </div>
+      <ul>{showtasks}</ul>
+    </div>
   );
 }
 
