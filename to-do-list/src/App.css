@@ -59,7 +59,9 @@ button:hover{
   flex: 1;
   word-wrap: break-word;    /* ✅ breaks long words */
   overflow-wrap: break-word;/* ✅ modern version */
-  white-space: normal;             /* ✅ text takes remaining space */
+  white-space: normal;
+  text-align: left;             /* ✅ text takes remaining space */
+  margin-right:40px;
 }
 
 
@@ -83,5 +85,11 @@ button:hover{
   color: white;
   font-weight: bold;
   margin-left: 10px;
+  font-size: 1rem;
+}
+alert{
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
 }
 

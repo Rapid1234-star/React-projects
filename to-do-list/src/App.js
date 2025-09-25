@@ -2,11 +2,9 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(["Sample Task"]);
   const [input, setInput] = useState("");
   const [isEditing, setIsEditing] = useState(false);
-  const [edit, setEdit] = useState(null);
-  const [editInput, setEditInput] = useState("");
 
   const showtasks = tasks.map((task, index) => {
     return (
@@ -21,8 +19,8 @@ function App() {
         <button className="down" onClick={() => handleDown(index)}>
           👇
         </button>
-        <button className="edit" onClick={() => handleEdit(index)} >
-          🎶
+        <button className="edit" onClick={() => handleEdit(index)}>
+          📝
         </button>
       </div>
     );
@@ -69,11 +67,19 @@ function App() {
 
   function handleEdit(index) {
     setIsEditing(true);
-    setEdit(index);
-
-    return (
-      alert("Need to add edit functionaltiy.Will add it soon in the name of Odin!")
-    );
+    const newTask = prompt("Edit Your Task:", tasks[index]);
+    if (newTask !== null && newTask.trim() !== "") {
+      if (newTask.trim() === tasks[index]) {
+        alert("No changes made 👍");
+      } else {
+        const updatedTasks = [...tasks];
+        updatedTasks[index] = newTask.trim();
+        setTasks(updatedTasks);
+      }
+    } else if (newTask !== null) {
+      alert("Task cannot be empty 🤦‍♂️");
+    }
+    setIsEditing(false);
   }
   return (
     <div className="todo">
