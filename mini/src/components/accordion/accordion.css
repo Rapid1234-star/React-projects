@@ -1,0 +1,35 @@
+.accordion {
+  border-radius: 4px;
+  display:flex;
+  flex-direction: column;
+width: 300px;
+margin: 20px auto;
+}
+.item {
+  border-bottom: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.title {
+  background-color: #e6baba;
+  padding: 10px;
+  cursor: pointer;
+ font-weight: bold;
+user-select: none;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 16px;
+}
+span{
+  margin-left: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #4d0b0b;
+}
+.content {
+  padding: 10px;
+  background-color: #e6baba;
+  transition: max-height 0.3s ease-out;
+    font-size: 14px;
+}
