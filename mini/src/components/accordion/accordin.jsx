@@ -16,19 +16,21 @@ function Accordion() {
   function enbableMultiple() {
     setMultipleselected(!multipleselected);
     if(!multipleselected){
-      setValue("Multiple")
+      setValue("Single")
     }
     else{
-      setValue("Single")
+      setValue("Multiple")
     }
   }
 
   function handleMultiple(index) {
-    let temp = [...multiple];
-    const found = temp.indexOf(index);
-    if(found=== -1){temp.push(index);}
-    else temp.splice(found, 1);
-    setMultiple(temp);
+    // use functional update to avoid stale state and toggle index presence
+    setMultiple((prev) => {
+      if (prev.includes(index)) {
+        return prev.filter((i) => i !== index);
+      }
+      return [...prev, index];
+    });
   }
   return (
     <div className="accordion">
@@ -37,11 +39,16 @@ function Accordion() {
       {data && data.length > 0
         ? data.map((item, index) => (
             <div className="item" key={item.id}>
-              <div className="title" onClick={() => (multipleselected ? handleMultiple(index) : handlesingle(index))}>
+              <div
+                className="title"
+                onClick={() => (multipleselected ? handleMultiple(index) : handlesingle(index))}
+              >
                 <h3>{item.title}</h3>
-                <span>{selected === index ? "-" : "+"}</span>
+                {/* Show open/closed state depending on current mode */}
+                <span>{multipleselected ? (multiple.includes(index) ? "-" : "+") : (selected === index ? "-" : "+")}</span>
               </div>
-              {selected === index && (
+              {/* Render content when item is open in either mode */}
+              {(multipleselected ? multiple.includes(index) : selected === index) && (
                 <div className="content">
                   <p>{item.content}</p>
                 </div>

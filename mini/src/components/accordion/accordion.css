@@ -10,6 +10,16 @@ margin: 20px auto;
   margin-top: 5px;
 }
 
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #a3531a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .title {
   background-color: #e6baba;
   padding: 10px;
